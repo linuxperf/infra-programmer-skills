@@ -25,9 +25,12 @@ copy_template() {
   local target="$target_dir/$name"
 
   if [[ -e "$target" && "$force" -ne 1 ]]; then
-    echo "Refusing to overwrite existing file: $target" >&2
-    echo "Re-run with --force to replace it." >&2
-    exit 1
+    if [[ -s "$target" ]]; then
+      printf '\n' >> "$target"
+    fi
+    cat "$source" >> "$target"
+    echo "Appended $source to $target"
+    return
   fi
 
   cp "$source" "$target"

@@ -17,8 +17,8 @@ description: Generate fixed AGENTS.md and CLAUDE.md project instruction files fr
 skills/code-agent-init/scripts/generate_agent_docs.sh [target-directory]
 ```
 
-3. Preserve existing files by default.
-   - If `AGENTS.md` or `CLAUDE.md` already exists, the script exits without overwriting it.
+3. Append to existing files by default.
+   - If `AGENTS.md` or `CLAUDE.md` already exists, the script appends the matching template content to the existing file.
    - When the user explicitly asks to regenerate, replace, or overwrite the files, run:
 
 ```bash
