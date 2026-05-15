@@ -4,6 +4,7 @@
 
 - Inspect the repository before making changes and follow existing patterns.
 - Make the smallest complete change that satisfies the request.
+- Prefer mature libraries and established best practices when choosing implementations.
 - Preserve user changes and never revert unrelated work.
 - Prefer `rg` for searching files and text.
 - Use structured parsers and existing project tools when available.

@@ -17,7 +17,12 @@ description: Generate fixed AGENTS.md and CLAUDE.md project instruction files fr
 skills/code-agent-init/scripts/generate_agent_docs.sh [target-directory]
 ```
 
-3. Append to existing files by default.
+3. Add language-specific AGENTS.md constraints when available.
+   - Inspect the target repository to identify the primary implementation language.
+   - If `lang/<language>.md` exists for that language, append its contents to the generated `AGENTS.md`.
+   - Only add language constraints that match the target repository; do not add every file from `lang/`.
+
+4. Append to existing files by default.
    - If `AGENTS.md` or `CLAUDE.md` already exists, the script appends the matching template content to the existing file.
    - When the user explicitly asks to regenerate, replace, or overwrite the files, run:
 
@@ -25,7 +30,7 @@ skills/code-agent-init/scripts/generate_agent_docs.sh [target-directory]
 skills/code-agent-init/scripts/generate_agent_docs.sh --force [target-directory]
 ```
 
-4. Report the generated file paths.
+5. Report the generated file paths.
    - Do not edit the generated content unless the user asks for a custom template.
    - Treat `assets/AGENTS.md` and `assets/CLAUDE.md` as the source of truth for the fixed templates.
 
@@ -33,6 +38,7 @@ skills/code-agent-init/scripts/generate_agent_docs.sh --force [target-directory]
 
 - `assets/AGENTS.md`: fixed Codex-style agent instructions.
 - `assets/CLAUDE.md`: fixed Claude Code-style agent instructions.
+- `lang/*.md`: optional language-specific constraints appended to `AGENTS.md` when the target repository uses that language.
 
 ## Notes
 
